@@ -14,5 +14,3 @@ interface SelectAuthorAction {
 }
 
 export type AuthorActionTypes = FetchAuthorsAction | SelectAuthorAction;
-
-export type DispatchType = () => FetchAuthorsAction;

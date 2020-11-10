@@ -4,12 +4,12 @@ import "./App.css";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import Author from "./models/Author";
-import { AuthorState } from "./store/author/state";
 import { thunkFetchAuthors } from "./store/author/thunk";
+import { AppState } from "./store";
 
 const App: React.FC = () => {
   const authors: readonly Author[] = useSelector(
-    (state: AuthorState) => state.authors,
+    (state: AppState) => state.authors.arr,
     shallowEqual
   );
   const dispatch: Dispatch<any> = useDispatch();
