@@ -4,8 +4,11 @@ import { createStore, combineReducers, applyMiddleware, Action } from "redux";
 import { ThunkAction } from "redux-thunk";
 
 import { AuthorsReducer } from "./author/reducers";
+import { BooksReducer } from "./book/reducers";
 import { AuthorActionTypes } from "./author/types";
 import { AuthorState } from "./author/state";
+import { BookActionTypes } from "./book/types";
+import { BookState } from "./book/state";
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
@@ -14,14 +17,16 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   Action<string>
 >;
 
-export type AppActions = AuthorActionTypes; // Assume other action interfaes will be added via union.
+export type AppActions = AuthorActionTypes | BookActionTypes;
 
 export interface AppState {
   authors: AuthorState;
+  books: BookState;
 }
 
 const RootReducer = combineReducers({
   authors: AuthorsReducer,
+  books: BooksReducer,
 });
 
 // export type AppState = ReturnType<typeof RootReducer>;
