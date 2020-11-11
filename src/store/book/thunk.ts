@@ -50,14 +50,12 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
   getState
 ) => {
   const filter = getState().books.currentFilter;
-  console.log("Send request");
   const url =
     `${BOOK_URL}/filter?publicationIds=${filter.publicationIds.map((f) => f)}` +
     `&categoryIds=${filter.categoryIds.map((f) => f)}` +
     `&authorIds=${filter.authorIds.map((f) => f)}` +
     `&page=${page - 1}&size=${PAGE_SIZE}`;
   const response = await axios.get(url);
-  console.log(response);
 
   let fetchedBooks: Book[] = plainToClass(Book, response.data._embedded.books);
   dispatch(filterBooks(fetchedBooks, Object.assign({}, filter)));
