@@ -6,6 +6,7 @@ import { ToolbarButton } from "./ToolbarButton";
 import { NavLink } from "react-router-dom";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { LogInOutButton } from "./LogInOutButton";
+import { CategoryButton } from "./CategoryButton";
 
 interface AppToolbarProps {
   onMenuClicked: () => void;
@@ -38,7 +39,7 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
       </Hidden>
       <Hidden xsDown>
         <ToolbarButton title="Home" link="/" icon="book-open" />
-        {/* <PopperCategoryList /> */}
+        <CategoryButton />
         <ToolbarButton title="Authors" link="/authors" />
         <ToolbarButton title="Publications" link="/publications" />
         <ToolbarButton title="About" link="/about" />
