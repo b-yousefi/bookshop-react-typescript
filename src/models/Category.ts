@@ -16,10 +16,6 @@ class Category {
     this.parent = "";
     this.subCategories = subCategories;
   }
-
-  addSubCategory(child: Category) {
-    this.subCategories.push(child);
-  }
 }
 
 export default Category;

@@ -48,6 +48,7 @@ export const CategoryButton = () => {
           {" "}
           {categories.map((category) => (
             <CategoryMenuItem
+              key={category.id}
               category={category}
               onClick={onCategoryItemClicked}
             />

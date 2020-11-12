@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Hidden, IconButton, Toolbar, Tooltip } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -7,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { LogInOutButton } from "./LogInOutButton";
 import { CategoryButton } from "./CategoryButton";
+import { AppState } from "../../store";
 
 interface AppToolbarProps {
   onMenuClicked: () => void;
@@ -24,6 +26,10 @@ const UserButton = () => {
 
 export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
   const classes = useStyles();
+
+  const isLoggedIn: boolean = useSelector(
+    (state: AppState) => state.user.isLoggedIn
+  );
 
   return (
     <Toolbar>
@@ -46,13 +52,13 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
       </Hidden>
       <div className={classes.grow} />
       {/* {this.create_tlb_shoppingCart()}*/}
-      <UserButton />
-      <LogInOutButton isLoggedIn={true} />
+      {isLoggedIn && <UserButton />}
+      <LogInOutButton isLoggedIn={isLoggedIn} />
     </Toolbar>
   );
 };
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((_: Theme) =>
   createStyles({
     root: {
       width: "100%",

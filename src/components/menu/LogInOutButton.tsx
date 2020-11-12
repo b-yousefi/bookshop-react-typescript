@@ -2,15 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Hidden, IconButton, Tooltip } from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { PopperLoginForm } from "../PopperLoginForm";
 
 interface LogInOutButtonProps {
   isLoggedIn: boolean;
 }
 
 export const LogInOutButton: React.FC<LogInOutButtonProps> = (props) => {
-  const isLoggedIn = { props };
+  const { isLoggedIn } = props;
   const tooltipLabel = isLoggedIn ? "Logout" : "Login";
-
   const onLogout = () => {
     //todo: change
     //this.props.logoutUser();
@@ -32,10 +32,7 @@ export const LogInOutButton: React.FC<LogInOutButtonProps> = (props) => {
         </Tooltip>
       </Hidden>
       <Hidden xsDown>
-        {
-          //todo: change
-          /* <PopperLoginForm /> */
-        }
+        <PopperLoginForm />
       </Hidden>
     </div>
   );
