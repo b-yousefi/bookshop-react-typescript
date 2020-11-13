@@ -6,7 +6,7 @@ import { Dispatch } from "redux";
 import Category from "../../models/Category";
 import { AppState } from "../../store";
 import { thunkFetchCategories } from "../../store/category/thunk";
-import { PopperButton } from "../PopperButton";
+import { PopperButton } from "../UI/PopperButton";
 import { CategoryMenuItem } from "./CategoryMenuItem";
 
 export const CategoryButton = () => {

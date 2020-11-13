@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { LoginForm } from "./LoginForm";
-import { PopperButton } from "./PopperButton";
+import { PopperButton } from "./UI/PopperButton";
 
 export const PopperLoginForm: React.FC = () => {
   const [popperOpen, setPopperOpen] = useState(false);
@@ -8,6 +8,11 @@ export const PopperLoginForm: React.FC = () => {
   const onOpenPopper = (open: boolean) => {
     setPopperOpen(open);
   };
+
+  const onClick = () => {
+    setPopperOpen(false);
+  };
+
   return (
     <PopperButton
       title="Login"
@@ -17,7 +22,7 @@ export const PopperLoginForm: React.FC = () => {
       onOpenPopper={onOpenPopper}
     >
       <div>
-        <LoginForm />
+        <LoginForm onClick={onClick} />
       </div>
     </PopperButton>
   );

@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Hidden, IconButton, Tooltip } from "@material-ui/core";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
 import { NavLink } from "react-router-dom";
 import { PopperLoginForm } from "../PopperLoginForm";
+import { thunkLogoutUser } from "../../store/user/thunk";
 
 interface LogInOutButtonProps {
   isLoggedIn: boolean;
@@ -11,9 +14,9 @@ interface LogInOutButtonProps {
 export const LogInOutButton: React.FC<LogInOutButtonProps> = (props) => {
   const { isLoggedIn } = props;
   const tooltipLabel = isLoggedIn ? "Logout" : "Login";
-  const onLogout = () => {
-    //todo: change
-    //this.props.logoutUser();
+  const dispatch: Dispatch<any> = useDispatch();
+  const onLogout = async () => {
+    dispatch(thunkLogoutUser());
   };
 
   return isLoggedIn ? (
