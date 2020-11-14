@@ -61,7 +61,7 @@ export const LoginForm: React.FC<LoginFormProps> = (props) => {
       _errors.password = "Required";
     }
     setErrors(_errors);
-    return errors.username.length == 0 && errors.password.length == 0;
+    return errors.username.length === 0 && errors.password.length === 0;
   };
 
   const onSubmitClicked = async (event: React.FormEvent) => {

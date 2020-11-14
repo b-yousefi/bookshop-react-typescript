@@ -18,6 +18,9 @@ import { CategoryState } from "./category/state";
 import { UserReducer } from "./user/reducers";
 import { UserActionTypes } from "./user/types";
 import { UserState } from "./user/state";
+import { ShoppingCartReducer } from "./shoppingCart/reducers";
+import { ShoppingCartActionsType } from "./shoppingCart/types";
+import { ShoppingCartState } from "./shoppingCart/state";
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
@@ -31,7 +34,8 @@ export type AppActions =
   | BookActionTypes
   | PublicationActionTypes
   | CategoryActionTypes
-  | UserActionTypes;
+  | UserActionTypes
+  | ShoppingCartActionsType;
 
 export interface AppState {
   authors: AuthorState;
@@ -39,6 +43,7 @@ export interface AppState {
   publications: PublicationState;
   categories: CategoryState;
   user: UserState;
+  shoppingCart: ShoppingCartState;
 }
 
 const RootReducer = combineReducers({
@@ -47,6 +52,7 @@ const RootReducer = combineReducers({
   publications: PublicationsReducer,
   categories: CategoriesReducer,
   user: UserReducer,
+  shoppingCart: ShoppingCartReducer,
 });
 
 // export type AppState = ReturnType<typeof RootReducer>;
