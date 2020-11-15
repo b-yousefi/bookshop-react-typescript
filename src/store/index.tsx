@@ -1,6 +1,9 @@
 import thunk, { ThunkMiddleware } from "redux-thunk";
 import { createStore, combineReducers, applyMiddleware, Action } from "redux";
 
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 import { ThunkAction } from "redux-thunk";
 
 import { AuthorsReducer } from "./author/reducers";
@@ -55,9 +58,19 @@ const RootReducer = combineReducers({
   shoppingCart: ShoppingCartReducer,
 });
 
+const persistConfig = {
+  key: "root",
+  storage: storage,
+  whitelist: ["user", "filter"],
+};
+
+const pReducer = persistReducer(persistConfig, RootReducer);
+
 // export type AppState = ReturnType<typeof RootReducer>;
 
 export const store = createStore(
-  RootReducer,
+  pReducer,
   applyMiddleware(thunk as ThunkMiddleware<AppState, AppActions>)
 );
+
+export const persistor = persistStore(store);

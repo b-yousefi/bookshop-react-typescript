@@ -22,27 +22,27 @@ export function ShoppingCartReducer(
       return { cart: action.cart };
     case ADD_SHOPPING_CART:
     case UPDATE_SHOPPING_CART: {
-      const updatedOrderItems = [...state.cart.items];
-      const orderItemIndex = state.cart.items.findIndex(
+      const updatedOrderItems = [...state.cart.orderItems];
+      const orderItemIndex = state.cart.orderItems.findIndex(
         (orderItem) => orderItem.id === action.orderItem.id
       );
       updatedOrderItems[orderItemIndex] = action.orderItem;
       const updatedCart = { ...state.cart };
-      updatedCart.items = updatedOrderItems;
+      updatedCart.orderItems = updatedOrderItems;
       const totalPrice = computeTotalPrice(updatedOrderItems);
       updatedCart.totalPrice = totalPrice;
       return { ...state, ...updatedCart };
     }
     case DELETE_SHOPPING_CART: {
       const deletedOrderItem = action.orderItem;
-      const orderItemIndex = state.cart.items.findIndex(
+      const orderItemIndex = state.cart.orderItems.findIndex(
         (orderItem) => orderItem.id === deletedOrderItem.id
       );
-      const updatedOrderItems = [...state.cart.items];
+      const updatedOrderItems = [...state.cart.orderItems];
       updatedOrderItems.splice(orderItemIndex);
       const totalPrice = computeTotalPrice(updatedOrderItems);
       const updatedCart = { ...state.cart };
-      updatedCart.items = updatedOrderItems;
+      updatedCart.orderItems = updatedOrderItems;
       updatedCart.totalPrice = totalPrice;
       return { ...state, ...updatedCart };
     }

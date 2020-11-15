@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useSelector } from "react-redux";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Hidden, IconButton, Toolbar, Tooltip } from "@material-ui/core";
@@ -9,6 +10,7 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { LogInOutButton } from "./LogInOutButton";
 import { CategoryButton } from "./CategoryButton";
 import { AppState } from "../../store";
+import { PopperShoppingCart } from "../ShoppingCart/PopperShoppingCart";
 
 interface AppToolbarProps {
   onMenuClicked: () => void;
@@ -31,6 +33,12 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
     (state: AppState) => state.user.isLoggedIn
   );
 
+  const token: string = useSelector((state: AppState) => state.user.token);
+
+  if (isLoggedIn) {
+    axios.defaults.headers.common["Authorization"] = token;
+  }
+
   return (
     <Toolbar>
       <Hidden smUp>
@@ -51,8 +59,8 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
         <ToolbarButton title="About" link="/about" />
       </Hidden>
       <div className={classes.grow} />
-      {/* {this.create_tlb_shoppingCart()}*/}
-      {isLoggedIn && <UserButton />}
+
+      {isLoggedIn && <UserButton /> && <PopperShoppingCart orderCount={1} />}
       <LogInOutButton isLoggedIn={isLoggedIn} />
     </Toolbar>
   );

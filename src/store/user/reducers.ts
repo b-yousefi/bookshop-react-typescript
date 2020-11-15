@@ -21,7 +21,11 @@ export function UserReducer(
     case FETCH_USER:
       return { ...state, user: action.user };
     case LOGIN_USER:
-      return { ...state, isLoggedIn: true };
+      return {
+        ...state,
+        isLoggedIn: true,
+        token: action.token,
+      };
     case LOGOUT_USER:
       return { ...INITIAL_STATE };
     case REGISTER_USER:

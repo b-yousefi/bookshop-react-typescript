@@ -6,19 +6,19 @@ class Order {
   totalPrice: number;
   status: string;
   updatedAt: Date;
-  items: OrderItem[];
+  orderItems: OrderItem[];
   constructor(
     id: string,
     totalPrice: number,
     status: string,
     updatedAt: Date,
-    items: OrderItem[]
+    orderItems: OrderItem[]
   ) {
     this.id = id;
     this.totalPrice = totalPrice;
     this.status = status;
     this.updatedAt = updatedAt;
-    this.items = items;
+    this.orderItems = orderItems;
   }
 
   get readableUpdatedAt() {

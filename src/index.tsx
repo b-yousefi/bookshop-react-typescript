@@ -6,7 +6,9 @@ import App from "./App";
 import { Provider } from "react-redux";
 import axios from "axios";
 
-import { store } from "./store/index";
+import { PersistGate } from "redux-persist/lib/integration/react";
+
+import { store, persistor } from "./store/index";
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.patch["Content-Type"] = "application/json";
@@ -14,7 +16,9 @@ axios.defaults.headers.put["Content-Type"] = "application/json";
 
 const routing = (
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>
 );
 

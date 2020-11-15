@@ -1,4 +1,5 @@
 import moment from "moment";
+import DbFile from "./DbFile";
 
 class Book {
   id: string;
@@ -9,7 +10,7 @@ class Book {
   ISBN: string;
   summary: string;
   categoryIds: string[];
-  picture: string;
+  picture: DbFile;
   price: number;
   quantity: number;
   constructor(
@@ -21,7 +22,7 @@ class Book {
     ISBN: string,
     summary: string,
     categoryIds: string[],
-    picture: string,
+    picture: DbFile,
     price: number,
     quantity: number
   ) {
