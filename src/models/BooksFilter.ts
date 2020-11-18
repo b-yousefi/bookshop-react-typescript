@@ -1,21 +1,19 @@
+import { FilterItem } from "./FilterItem";
+
 class BooksFilter {
-  publicationIds: string[];
-  categoryIds: string[];
-  authorIds: string[];
+  publications: FilterItem[];
+  categories: FilterItem[];
+  authors: FilterItem[];
   doRefresh: boolean;
   constructor(
-    publicationIds: string[] = [],
-    categoryIds: string[] = [],
-    authorIds: string[] = []
+    publications: FilterItem[] = [],
+    categories: FilterItem[] = [],
+    authors: FilterItem[] = []
   ) {
-    this.publicationIds = publicationIds;
-    this.categoryIds = categoryIds;
-    this.authorIds = authorIds;
+    this.publications = publications;
+    this.categories = categories;
+    this.authors = authors;
     this.doRefresh = true;
-  }
-
-  set refresh(value: boolean) {
-    this.doRefresh = value;
   }
 }
 
