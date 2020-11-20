@@ -1,3 +1,4 @@
+import { PageInfo } from "./../../models/PageInfo";
 import Book from "../../models/Book";
 import BooksFilter from "../../models/BooksFilter";
 
@@ -9,6 +10,7 @@ interface FilterBooksAction {
   type: typeof FILTER_BOOKS;
   books: Book[];
   filter: BooksFilter;
+  pageInfo: PageInfo;
 }
 
 interface FetchBookAction {

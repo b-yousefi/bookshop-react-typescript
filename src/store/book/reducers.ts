@@ -13,6 +13,7 @@ const INITIAL_STATE: BookState = {
   currentFilter: new BooksFilter([], [], []),
   loading: false,
   selectedBook: {} as Book,
+  pageInfo: { size: 0, totalElements: 0, totalPages: 0, pageNumber: 0 },
 };
 
 export function BooksReducer(
@@ -21,7 +22,12 @@ export function BooksReducer(
 ): BookState {
   switch (action.type) {
     case FILTER_BOOKS:
-      return { ...state, arr: action.books, currentFilter: action.filter };
+      return {
+        ...state,
+        arr: action.books,
+        currentFilter: action.filter,
+        pageInfo: action.pageInfo,
+      };
     case FETCH_BOOK:
       return { ...state, selectedBook: action.book };
     case LOADING_BOOKS:

@@ -1,3 +1,4 @@
+import { PageInfo } from "./../../models/PageInfo";
 import axios from "axios";
 import _ from "lodash";
 import Book from "../../models/Book";
@@ -41,7 +42,6 @@ export const thunkFilterBooks = (filter: BooksFilter): AppThunk => async (
     //do nothing data is up to date
     return;
   }
-  dispatch(loadingBooks(true));
   dispatch(thunkFilterBooksByPage(1));
 };
 
@@ -49,6 +49,7 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
   dispatch,
   getState
 ) => {
+  dispatch(loadingBooks(true));
   const filter = getState().books.currentFilter;
   const url =
     `${BOOK_URL}/filter?publicationIds=${filter.publications.map(
@@ -60,7 +61,10 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
   const response = await axios.get(url);
 
   let fetchedBooks: Book[] = plainToClass(Book, response.data._embedded.books);
-  dispatch(filterBooks(fetchedBooks, Object.assign({}, filter)));
+  let pageInfo: PageInfo = plainToClass(PageInfo, response.data.page as Object);
+  pageInfo.pageNumber = response.data.page.number;
+  dispatch(filterBooks(fetchedBooks, Object.assign({}, filter), pageInfo));
+  dispatch(loadingBooks(false));
 };
 
 export const fetchBooks = (): AppThunk => async (dispatch) => {

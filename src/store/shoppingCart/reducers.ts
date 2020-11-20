@@ -1,3 +1,4 @@
+import Order from "../../models/Order";
 import OrderItem from "../../models/OrderItem";
 import { ShoppingCartState } from "./state";
 import {
@@ -10,7 +11,7 @@ import {
 } from "./types";
 
 const initialState: ShoppingCartState = {
-  cart: {} as any,
+  cart: new Order("0", 0, "init", new Date(), []),
 };
 
 export function ShoppingCartReducer(

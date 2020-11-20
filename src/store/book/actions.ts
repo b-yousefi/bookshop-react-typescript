@@ -1,3 +1,4 @@
+import { PageInfo } from "./../../models/PageInfo";
 import {
   BookActionTypes,
   FETCH_BOOK,
@@ -16,12 +17,14 @@ export function fetchBook(book: Book): BookActionTypes {
 
 export function filterBooks(
   books: Book[],
-  filter: BooksFilter
+  filter: BooksFilter,
+  pageInfo: PageInfo
 ): BookActionTypes {
   return {
     type: FILTER_BOOKS,
     books: books,
     filter: filter,
+    pageInfo: pageInfo,
   };
 }
 
