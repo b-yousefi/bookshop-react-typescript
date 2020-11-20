@@ -10,6 +10,7 @@ import { setAuthorFilter } from "../../store/filter/actions";
 
 interface AuthorsFilterProps {
   selectedAuthors?: FilterItem[];
+  onFilterChanged: () => void;
 }
 
 export const AuthorsFilter: React.FC<AuthorsFilterProps> = (props) => {
@@ -27,8 +28,7 @@ export const AuthorsFilter: React.FC<AuthorsFilterProps> = (props) => {
 
   const onChange = (newValue: FilterItem[]) => {
     dipatch(setAuthorFilter(newValue));
-    // this.props.setFilter(this.state.filter);
-    // this.props.filterBooks();
+    props.onFilterChanged();
   };
 
   return (

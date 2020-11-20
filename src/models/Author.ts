@@ -1,20 +1,21 @@
 import moment from "moment";
+import { Entity } from "./Entity";
+import { Links } from "./Links";
 
-class Author {
-  id: string;
+class Author extends Entity {
   fullName: string;
   birthday: Date;
   description: string;
   picture: string;
 
   constructor(
-    id: string,
     fullName: string,
     birthday: Date,
     description: string,
-    picture: string
+    picture: string,
+    _links: Links
   ) {
-    this.id = id;
+    super(_links);
     this.fullName = fullName;
     this.birthday = birthday;
     this.description = description;

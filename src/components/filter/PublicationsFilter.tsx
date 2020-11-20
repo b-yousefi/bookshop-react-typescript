@@ -10,6 +10,7 @@ import { setPublicationFilter } from "../../store/filter/actions";
 
 interface PublicationsFilterProps {
   selectedPublications?: FilterItem[];
+  onFilterChanged: () => void;
 }
 
 export const PublicationsFilter: React.FC<PublicationsFilterProps> = (
@@ -29,8 +30,7 @@ export const PublicationsFilter: React.FC<PublicationsFilterProps> = (
 
   const onChange = (newValue: FilterItem[]) => {
     dipatch(setPublicationFilter(newValue));
-    // this.props.setFilter(this.state.filter);
-    // this.props.filterBooks();
+    props.onFilterChanged();
   };
 
   return (

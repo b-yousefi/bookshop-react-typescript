@@ -9,10 +9,13 @@ import {
   Typography,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
 
 import { AuthorsFilter } from "./AuthorsFilter";
 import { CategoriesFilter } from "./CategoriesFilter";
 import { PublicationsFilter } from "./PublicationsFilter";
+import { thunkFilterBooks } from "../../store/book/thunk";
 
 interface SearchPanelProps {
   showCategoryFilter: boolean;
@@ -28,6 +31,12 @@ export const SearchPanel: React.FC<SearchPanelProps> = (props) => {
   };
   const classes = useStyles();
 
+  const dipatch: Dispatch<any> = useDispatch();
+
+  const onFilterChanged = () => {
+    dipatch(thunkFilterBooks());
+  };
+
   const createFilters = () => {
     const {
       showAuthorFilter,
@@ -36,9 +45,15 @@ export const SearchPanel: React.FC<SearchPanelProps> = (props) => {
     } = props;
     return (
       <List style={{ width: "100%" }}>
-        {showCategoryFilter && <CategoriesFilter />}
-        {showAuthorFilter && <AuthorsFilter />}
-        {showPublicationFilter && <PublicationsFilter />}
+        {showCategoryFilter && (
+          <CategoriesFilter onFilterChanged={onFilterChanged} />
+        )}
+        {showAuthorFilter && (
+          <AuthorsFilter onFilterChanged={onFilterChanged} />
+        )}
+        {showPublicationFilter && (
+          <PublicationsFilter onFilterChanged={onFilterChanged} />
+        )}
       </List>
     );
   };

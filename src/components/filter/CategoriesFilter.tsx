@@ -10,6 +10,7 @@ import { setCategoryFilter } from "../../store/filter/actions";
 
 interface CategoriesFilterProps {
   selectedCategories?: FilterItem[];
+  onFilterChanged: () => void;
 }
 
 export const CategoriesFilter: React.FC<CategoriesFilterProps> = (props) => {
@@ -27,8 +28,7 @@ export const CategoriesFilter: React.FC<CategoriesFilterProps> = (props) => {
 
   const onChange = (newValue: FilterItem[]) => {
     dipatch(setCategoryFilter(newValue));
-    // this.props.setFilter(this.state.filter);
-    // this.props.filterBooks();
+    props.onFilterChanged();
   };
 
   return (

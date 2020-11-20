@@ -5,7 +5,6 @@ import Book from "../../models/Book";
 import { fetchBook, filterBooks, loadingBooks } from "./actions";
 import { AppThunk } from "../index";
 import { plainToClass } from "class-transformer";
-import BooksFilter from "../../models/BooksFilter";
 
 const BOOK_URL = `${process.env.REACT_APP_API_URL}/books`;
 
@@ -20,12 +19,9 @@ export const thunkFetchBook = (bookId: string): AppThunk => async (
   dispatch(fetchBook(fetchedBook));
 };
 
-export const thunkFilterBooks = (filter: BooksFilter): AppThunk => async (
-  dispatch,
-  getState
-) => {
+export const thunkFilterBooks = (): AppThunk => async (dispatch, getState) => {
   let refresh = getState().books.currentFilter.doRefresh;
-
+  let filter = getState().filter.bookFilter;
   if (!refresh) {
     const booksFilter = getState().books.currentFilter;
     if (
@@ -50,7 +46,7 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
   getState
 ) => {
   dispatch(loadingBooks(true));
-  const filter = getState().books.currentFilter;
+  const filter = getState().filter.bookFilter;
   const url =
     `${BOOK_URL}/filter?publicationIds=${filter.publications.map(
       (f) => f.id
@@ -59,8 +55,10 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
     `&authorIds=${filter.authors.map((f) => f.id)}` +
     `&page=${page - 1}&size=${PAGE_SIZE}`;
   const response = await axios.get(url);
-
-  let fetchedBooks: Book[] = plainToClass(Book, response.data._embedded.books);
+  let fetchedBooks: Book[] = [];
+  if (response.data._embedded) {
+    fetchedBooks = plainToClass(Book, response.data._embedded.books);
+  }
   let pageInfo: PageInfo = plainToClass(PageInfo, response.data.page as Object);
   pageInfo.pageNumber = response.data.page.number;
   dispatch(filterBooks(fetchedBooks, Object.assign({}, filter), pageInfo));
@@ -68,5 +66,5 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
 };
 
 export const fetchBooks = (): AppThunk => async (dispatch) => {
-  dispatch(thunkFilterBooks(new BooksFilter()));
+  dispatch(thunkFilterBooks());
 };
