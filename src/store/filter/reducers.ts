@@ -24,24 +24,24 @@ export function FilterReducer(
     case SET_AUTHOR_FILTER:
       return {
         ...state,
-        filter: {
-          ...state.filter,
+        bookFilter: {
+          ...state.bookFilter,
           authors: action.selectedAuthors,
         },
       };
     case SET_CATEGORY_FILTER:
       return {
         ...state,
-        filter: {
-          ...state.filter,
+        bookFilter: {
+          ...state.bookFilter,
           categories: action.selectedCategories,
         },
       };
     case SET_PUBLICATION_FILTER:
       return {
         ...state,
-        filter: {
-          ...state.filter,
+        bookFilter: {
+          ...state.bookFilter,
           publications: action.selectedPublications,
         },
       };

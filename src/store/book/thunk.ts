@@ -29,9 +29,9 @@ export const thunkFilterBooks = (filter: BooksFilter): AppThunk => async (
     const booksFilter = getState().books.currentFilter;
     if (
       !booksFilter ||
-      !_.isEqual(filter.publicationIds, booksFilter.publicationIds) ||
-      !_.isEqual(filter.categoryIds, booksFilter.categoryIds) ||
-      !_.isEqual(filter.authorIds, booksFilter.authorIds)
+      !_.isEqual(filter.publications, booksFilter.publications) ||
+      !_.isEqual(filter.categories, booksFilter.categories) ||
+      !_.isEqual(filter.authors, booksFilter.authors)
     ) {
       refresh = true;
     }
@@ -51,9 +51,11 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
 ) => {
   const filter = getState().books.currentFilter;
   const url =
-    `${BOOK_URL}/filter?publicationIds=${filter.publicationIds.map((f) => f)}` +
-    `&categoryIds=${filter.categoryIds.map((f) => f)}` +
-    `&authorIds=${filter.authorIds.map((f) => f)}` +
+    `${BOOK_URL}/filter?publicationIds=${filter.publications.map(
+      (f) => f.id
+    )}` +
+    `&categoryIds=${filter.categories.map((f) => f.id)}` +
+    `&authorIds=${filter.authors.map((f) => f.id)}` +
     `&page=${page - 1}&size=${PAGE_SIZE}`;
   const response = await axios.get(url);
 
