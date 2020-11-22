@@ -6,11 +6,10 @@ import { ListItem } from "@material-ui/core";
 import { CheckBoxTag } from "./CheckBoxTag";
 import { FilterItem } from "../../models/FilterItem";
 import { AppState } from "../../store";
-import { setCategoryFilter } from "../../store/filter/actions";
+import { setCategoriesFilter } from "../../store/filter/actions";
 
 interface CategoriesFilterProps {
   selectedCategories?: FilterItem[];
-  onFilterChanged: () => void;
 }
 
 export const CategoriesFilter: React.FC<CategoriesFilterProps> = (props) => {
@@ -27,8 +26,7 @@ export const CategoriesFilter: React.FC<CategoriesFilterProps> = (props) => {
   const dipatch: Dispatch<any> = useDispatch();
 
   const onChange = (newValue: FilterItem[]) => {
-    dipatch(setCategoryFilter(newValue));
-    props.onFilterChanged();
+    dipatch(setCategoriesFilter(newValue));
   };
 
   return (

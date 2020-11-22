@@ -6,11 +6,10 @@ import { ListItem } from "@material-ui/core";
 import { CheckBoxTag } from "./CheckBoxTag";
 import { FilterItem } from "../../models/FilterItem";
 import { AppState } from "../../store";
-import { setAuthorFilter } from "../../store/filter/actions";
+import { setAuthorsFilter } from "../../store/filter/actions";
 
 interface AuthorsFilterProps {
   selectedAuthors?: FilterItem[];
-  onFilterChanged: () => void;
 }
 
 export const AuthorsFilter: React.FC<AuthorsFilterProps> = (props) => {
@@ -27,8 +26,7 @@ export const AuthorsFilter: React.FC<AuthorsFilterProps> = (props) => {
   const dipatch: Dispatch<any> = useDispatch();
 
   const onChange = (newValue: FilterItem[]) => {
-    dipatch(setAuthorFilter(newValue));
-    props.onFilterChanged();
+    dipatch(setAuthorsFilter(newValue));
   };
 
   return (

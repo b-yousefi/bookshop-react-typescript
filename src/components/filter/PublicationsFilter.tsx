@@ -6,11 +6,10 @@ import { ListItem } from "@material-ui/core";
 import { CheckBoxTag } from "./CheckBoxTag";
 import { FilterItem } from "../../models/FilterItem";
 import { AppState } from "../../store";
-import { setPublicationFilter } from "../../store/filter/actions";
+import { setPublicationsFilter } from "../../store/filter/actions";
 
 interface PublicationsFilterProps {
   selectedPublications?: FilterItem[];
-  onFilterChanged: () => void;
 }
 
 export const PublicationsFilter: React.FC<PublicationsFilterProps> = (
@@ -29,8 +28,7 @@ export const PublicationsFilter: React.FC<PublicationsFilterProps> = (
   const dipatch: Dispatch<any> = useDispatch();
 
   const onChange = (newValue: FilterItem[]) => {
-    dipatch(setPublicationFilter(newValue));
-    props.onFilterChanged();
+    dipatch(setPublicationsFilter(newValue));
   };
 
   return (

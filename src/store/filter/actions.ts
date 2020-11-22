@@ -1,36 +1,64 @@
 import { FilterItem } from "../../models/FilterItem";
 import {
   FilterActionTypes,
-  SET_AUTHOR_FILTER,
-  SET_CATEGORY_FILTER,
-  SET_PUBLICATION_FILTER,
+  SET_AUTHORS_FILTER,
+  SET_CATEGORIES_FILTER,
+  SET_PUBLICATIONS_FILTER,
+  SELECT_AUTHOR,
+  SELECT_CATEGORY,
+  SELECT_PUBLICATION,
   CLEAR_FILTER,
 } from "./types";
 
-export function setAuthorFilter(
+export function setAuthorsFilter(
   selectedAuthors: FilterItem[]
 ): FilterActionTypes {
   return {
-    type: SET_AUTHOR_FILTER,
+    type: SET_AUTHORS_FILTER,
     selectedAuthors: selectedAuthors,
   };
 }
 
-export function setCategoryFilter(
+export function selectAuthor(selectedAuthor: FilterItem): FilterActionTypes {
+  return {
+    type: SELECT_AUTHOR,
+    selectedAuthor: selectedAuthor,
+  };
+}
+
+export function setCategoriesFilter(
   selectedCategories: FilterItem[]
 ): FilterActionTypes {
   return {
-    type: SET_CATEGORY_FILTER,
+    type: SET_CATEGORIES_FILTER,
     selectedCategories: selectedCategories,
   };
 }
 
-export function setPublicationFilter(
+export function selectCategory(
+  selectedCategory: FilterItem
+): FilterActionTypes {
+  return {
+    type: SELECT_CATEGORY,
+    selectedCategory: selectedCategory,
+  };
+}
+
+export function setPublicationsFilter(
   selectedPublications: FilterItem[]
 ): FilterActionTypes {
   return {
-    type: SET_PUBLICATION_FILTER,
+    type: SET_PUBLICATIONS_FILTER,
     selectedPublications: selectedPublications,
+  };
+}
+
+export function selectPublication(
+  selectedPublication: FilterItem
+): FilterActionTypes {
+  return {
+    type: SELECT_PUBLICATION,
+    selectedPublication: selectedPublication,
   };
 }
 

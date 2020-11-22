@@ -5,6 +5,7 @@ import Book from "../../models/Book";
 import { fetchBook, filterBooks, loadingBooks } from "./actions";
 import { AppThunk } from "../index";
 import { plainToClass } from "class-transformer";
+import BooksFilter from "../../models/BooksFilter";
 
 const BOOK_URL = `${process.env.REACT_APP_API_URL}/books`;
 
@@ -19,34 +20,42 @@ export const thunkFetchBook = (bookId: string): AppThunk => async (
   dispatch(fetchBook(fetchedBook));
 };
 
-export const thunkFilterBooks = (): AppThunk => async (dispatch, getState) => {
-  let refresh = getState().books.currentFilter.doRefresh;
-  let filter = getState().filter.bookFilter;
+export const thunkFilterBooks = (filter: BooksFilter): AppThunk => async (
+  dispatch
+) => {
+  dispatch(thunkFilterBooksByPage(filter, 1));
+};
+
+function shouldRefresh(filter: BooksFilter, currentFilter: BooksFilter) {
+  if (
+    !currentFilter ||
+    !_.isEqual(filter.publications, currentFilter.publications) ||
+    !_.isEqual(filter.categories, currentFilter.categories) ||
+    !_.isEqual(filter.authors, currentFilter.authors)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export const thunkFilterBooksByPage = (
+  filter: BooksFilter,
+  page: number
+): AppThunk => async (dispatch, getState) => {
+  let refresh = getState().filter.bookFilter.doRefresh;
+
   if (!refresh) {
     const booksFilter = getState().books.currentFilter;
-    if (
-      !booksFilter ||
-      !_.isEqual(filter.publications, booksFilter.publications) ||
-      !_.isEqual(filter.categories, booksFilter.categories) ||
-      !_.isEqual(filter.authors, booksFilter.authors)
-    ) {
-      refresh = true;
-    }
+    refresh = shouldRefresh(filter, booksFilter);
   }
 
   if (!refresh) {
     //do nothing data is up to date
     return;
   }
-  dispatch(thunkFilterBooksByPage(1));
-};
 
-export const thunkFilterBooksByPage = (page: number): AppThunk => async (
-  dispatch,
-  getState
-) => {
   dispatch(loadingBooks(true));
-  const filter = getState().filter.bookFilter;
   const url =
     `${BOOK_URL}/filter?publicationIds=${filter.publications.map(
       (f) => f.id
@@ -63,8 +72,4 @@ export const thunkFilterBooksByPage = (page: number): AppThunk => async (
   pageInfo.pageNumber = response.data.page.number;
   dispatch(filterBooks(fetchedBooks, Object.assign({}, filter), pageInfo));
   dispatch(loadingBooks(false));
-};
-
-export const fetchBooks = (): AppThunk => async (dispatch) => {
-  dispatch(thunkFilterBooks());
 };
