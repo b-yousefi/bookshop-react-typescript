@@ -23,7 +23,7 @@ const AuthorItem_: React.FC<AuthorItemProps> = (props) => {
   const { author } = props;
 
   return (
-    <Grid key={author._links.self.href} item xs={6} md={3}>
+    <Grid item xs={6} md={3}>
       <Card className={classes.mediaroot}>
         <CardActionArea
           component={Link}

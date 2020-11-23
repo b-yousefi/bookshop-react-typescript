@@ -2,11 +2,11 @@ import moment from "moment";
 import DbFile from "./DbFile";
 
 class Book {
-  id: string;
+  id: number;
   name: string;
   publishedDay: Date;
-  authorIds: string[];
-  publicationId: string[];
+  authorIds: number[];
+  publicationId: number;
   ISBN: string;
   summary: string;
   categoryIds: string[];
@@ -14,11 +14,11 @@ class Book {
   price: number;
   quantity: number;
   constructor(
-    id: string,
+    id: number,
     name: string,
     publishedDay: Date,
-    authorIds: string[],
-    publicationId: string[],
+    authorIds: number[],
+    publicationId: number,
     ISBN: string,
     summary: string,
     categoryIds: string[],

@@ -39,7 +39,7 @@ const AuthorList: React.FC<RouteComponentProps> = (props) => {
           <Grid item md={2}></Grid>
           <Grid container item xs={12} md={8} spacing={2}>
             {authors.map((author) => (
-              <AuthorItem author={author} />
+              <AuthorItem key={author.id} author={author} />
             ))}
           </Grid>
         </Route>

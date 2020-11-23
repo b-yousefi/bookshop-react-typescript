@@ -18,13 +18,15 @@ export const BookList: React.FC = () => {
 
   const books = useSelector((state: AppState) => state.books.arr);
 
+  const filter = useSelector((state: AppState) => state.filter.bookFilter);
+
   const isLoading = useSelector((state: AppState) => state.books.loading);
 
   const pageInfo = useSelector((state: AppState) => state.books.pageInfo);
 
   const fetchedBooks = useCallback(
-    () => dispatch(thunkFilterBooksByPage(page)),
-    [dispatch, page]
+    () => dispatch(thunkFilterBooksByPage(filter, page)),
+    [dispatch, page, filter]
   );
 
   useEffect(() => {
@@ -70,7 +72,7 @@ export const BookList: React.FC = () => {
     <React.Fragment>
       <Grid container item spacing={2}>
         {books.map((book) => (
-          <BookItem book={book} />
+          <BookItem key={book.id} book={book} />
         ))}
       </Grid>
       <Box

@@ -61,7 +61,7 @@ export const BookItem: React.FC<BookItemProps> = (props) => {
   };
 
   return (
-    <Grid key={book.id} item xs={6} md={3} sm={4}>
+    <Grid item xs={6} md={3} sm={4}>
       <Card className={classes.mediaroot}>
         <CardActionArea
           component={Link}
