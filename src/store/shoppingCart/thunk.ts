@@ -19,9 +19,7 @@ export const thunkFetchShoppingCart = (): AppThunk => async (
   getState
 ) => {
   const userId = getState().user.user.id;
-  // const url = `${USER_URL}/${userId}/shopping_cart`;
-  const username = getState().user.user.username;
-  const url = `${USER_URL}/get_shopping_cart?username=${username}`;
+  const url = `${USER_URL}/${userId}/shopping_cart`;
   const response = await axios.get(url);
   let fetchedCart: Order = plainToClass(Order, response.data as Object);
   dispatch(fetchShoppingCart(fetchedCart));

@@ -32,7 +32,9 @@ export const BookItem: React.FC<BookItemProps> = (props) => {
   );
 
   const orderItem = useSelector((state: AppState) =>
-    state.shoppingCart.cart.orderItems.find((item) => item.book.id === book.id)
+    state.shoppingCart.cart.orderItems.find(
+      (item) => item.book.id === props.book.id
+    )
   );
 
   let book_order_count = 0;

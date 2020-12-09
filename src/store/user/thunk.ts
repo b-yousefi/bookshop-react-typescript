@@ -2,8 +2,10 @@ import { AppThunk } from "./../index";
 import axios from "axios";
 
 import { fetchUser, registerUser, loginUser, logoutUser } from "./actions";
+import { fetchShoppingCart } from "../shoppingCart/actions";
 import User from "../../models/User";
 import { plainToClass } from "class-transformer";
+import Order from "../../models/Order";
 
 const USER_URL = `${process.env.REACT_APP_API_URL}/users`;
 
@@ -16,6 +18,10 @@ export const thunkFetchUser = (username: string): AppThunk => async (
   let fetchedUser: User = plainToClass(User, response.data as Object);
 
   dispatch(fetchUser(fetchedUser));
+
+  let cart: Order = plainToClass(Order, response.data.openOrder as Object);
+
+  dispatch(fetchShoppingCart(cart));
 };
 
 export const thunkRegsiterUser = (user: User): AppThunk => async (dispatch) => {
