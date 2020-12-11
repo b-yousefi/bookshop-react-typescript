@@ -10,7 +10,7 @@ interface CategoryLinkProps {
 
 export const CategoryLink: React.FC<CategoryLinkProps> = (props) => {
   const category = useSelector((state: AppState) =>
-    state.categories.arr.find((c) => c.id === props.categoryId)
+    state.categories.arr.find((c) => c.id.toString() === props.categoryId)
   );
 
   if (category === undefined) {
