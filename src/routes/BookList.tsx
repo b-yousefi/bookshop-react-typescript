@@ -24,10 +24,10 @@ export const BookList: React.FC = () => {
 
   const pageInfo = useSelector((state: AppState) => state.books.pageInfo);
 
-  const fetchedBooks = useCallback(
-    () => dispatch(thunkFilterBooksByPage(filter, page)),
-    [dispatch, page, filter]
-  );
+  const fetchedBooks = useCallback(() => {
+    const pageFilter = { ...filter, doRefresh: true };
+    return dispatch(thunkFilterBooksByPage(pageFilter, page));
+  }, [dispatch, page, filter]);
 
   useEffect(() => {
     fetchedBooks();

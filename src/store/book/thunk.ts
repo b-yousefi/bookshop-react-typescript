@@ -43,7 +43,7 @@ export const thunkFilterBooksByPage = (
   filter: BooksFilter,
   page: number
 ): AppThunk => async (dispatch, getState) => {
-  let refresh = getState().filter.bookFilter.doRefresh;
+  let refresh = filter.doRefresh;
 
   if (!refresh) {
     const booksFilter = getState().books.currentFilter;
