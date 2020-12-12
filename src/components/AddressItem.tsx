@@ -28,9 +28,13 @@ interface AddressItemProps {
 export const AddressItem: React.FC<AddressItemProps> = (props) => {
   const { address } = props;
 
+  const onDelete = () => {
+    props.onDelete(address);
+  };
+
   return (
     <ListItem>
-      {props.isEditable && (
+      {!props.isEditable && (
         <ListItemIcon>
           <Radio
             edge="start"
@@ -57,7 +61,7 @@ export const AddressItem: React.FC<AddressItemProps> = (props) => {
           </Typography>
         </Grid>
       </Grid>
-      {!props.isEditable && (
+      {props.isEditable && (
         <ListItemSecondaryAction>
           <IconButton
             edge="end"
@@ -67,11 +71,7 @@ export const AddressItem: React.FC<AddressItemProps> = (props) => {
           >
             <EditIcon fontSize="large" />
           </IconButton>
-          <IconButton
-            edge="end"
-            aria-label="Delete"
-            onClick={() => props.onDelete(address)}
-          >
+          <IconButton edge="end" aria-label="Delete" onClick={onDelete}>
             <DeleteIcon fontSize="large" />
           </IconButton>
         </ListItemSecondaryAction>

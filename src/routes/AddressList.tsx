@@ -19,6 +19,7 @@ import {
 } from "react-router-dom";
 import emptyListPic from "../resources/images/emptyList.jpg";
 import Address from "../models/Address";
+import { AddressForm } from "../components/AddressForm";
 
 interface AddressListProps extends RouteComponentProps {
   isEditable: boolean;
@@ -46,7 +47,8 @@ const AddressList: React.FC<AddressListProps> = (props) => {
     props.onSelectAddress(address);
   };
 
-  const handleDelete = (address: Address) => () => {
+  const handleDelete = (address: Address) => {
+    console.log(address);
     dispatch(thunkDeleteAddress(address));
   };
 
@@ -71,6 +73,7 @@ const AddressList: React.FC<AddressListProps> = (props) => {
               <List className={classes.list}>
                 {addresses.map((address) => (
                   <AddressItem
+                    key={address.id}
                     address={address}
                     isSelected={
                       selectedAddress !== undefined &&
@@ -98,8 +101,7 @@ const AddressList: React.FC<AddressListProps> = (props) => {
             )}
           </Box>
         </Route>
-        {/* todo */}
-        {/* <Route path={`${props.match.url}/:id`} component={AddressForm} /> */}
+        <Route path={`${props.match.url}/:id`} component={AddressForm} />
       </Switch>
     </Box>
   );
@@ -122,5 +124,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
+AddressList.defaultProps = { isEditable: true };
 
 export const AddressListPage = withRouter(AddressList);

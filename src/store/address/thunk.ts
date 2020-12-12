@@ -28,19 +28,26 @@ export const thunkFetchAddresses = (): AppThunk => async (
 };
 
 export const thunkAddAddress = (address: Address): AppThunk => async (
-  dispatch
+  dispatch,
+  getState
 ) => {
-  const response = await axios.post(Address_URL, JSON.stringify(address));
+  const userLink = getState().user.user._links!.self.href;
+  const newAddress = { ...address, user: userLink };
+  const response = await axios.post(Address_URL, JSON.stringify(newAddress));
   let addedAddress: Address = plainToClass(Address, response.data as Object);
   dispatch(addAddress(addedAddress));
 };
 
 export const thunkEditAddress = (address: Address): AppThunk => async (
-  dispatch
+  dispatch,
+  getState
 ) => {
   const url = `${Address_URL}/${address.id}`;
 
-  const response = await axios.patch(url, JSON.stringify(address));
+  const userLink = getState().user.user._links!.self.href;
+  const addrs = { ...address, user: userLink };
+
+  const response = await axios.patch(url, JSON.stringify(addrs));
   let updatedAddress: Address = plainToClass(Address, response.data as Object);
   dispatch(editAddress(updatedAddress));
 };

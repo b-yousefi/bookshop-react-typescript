@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import MapGL, { Marker } from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
 import RoomIcon from "@material-ui/icons/Room";
+import MarkerPoint from "../../models/MarkerPoint";
 
 const TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -17,7 +18,7 @@ interface MapProps {
   lon: number;
   zoom?: number;
   isEditable: boolean;
-  onMarkerChanged?: (marker: MarkerPoint) => {};
+  onMarkerChanged?: (marker: MarkerPoint) => void;
 }
 
 interface ViewPort {
@@ -26,11 +27,6 @@ interface ViewPort {
   zoom: number;
   bearing: number;
   pitch: number;
-}
-
-interface MarkerPoint {
-  latitude: number;
-  longitude: number;
 }
 
 export const Map: React.FC<MapProps> = (props) => {
