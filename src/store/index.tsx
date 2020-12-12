@@ -27,6 +27,9 @@ import { ShoppingCartState } from "./shoppingCart/state";
 import { FilterReducer } from "./filter/reducers";
 import { FilterActionTypes } from "./filter/types";
 import { FilterState } from "./filter/state";
+import { AddressesReducer } from "./address/reducers";
+import { AddressActionTypes } from "./address/types";
+import { AddressState } from "./address/state";
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
@@ -42,7 +45,8 @@ export type AppActions =
   | CategoryActionTypes
   | UserActionTypes
   | ShoppingCartActionsType
-  | FilterActionTypes;
+  | FilterActionTypes
+  | AddressActionTypes;
 
 export interface AppState {
   authors: AuthorState;
@@ -52,6 +56,7 @@ export interface AppState {
   user: UserState;
   shoppingCart: ShoppingCartState;
   filter: FilterState;
+  addresses: AddressState;
 }
 
 const RootReducer = combineReducers({
@@ -62,6 +67,7 @@ const RootReducer = combineReducers({
   user: UserReducer,
   shoppingCart: ShoppingCartReducer,
   filter: FilterReducer,
+  addresses: AddressesReducer,
 });
 
 const persistConfig = {
