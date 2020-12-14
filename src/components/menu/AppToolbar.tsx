@@ -33,6 +33,10 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
     (state: AppState) => state.user.isLoggedIn
   );
 
+  const orderItemsCount: number = useSelector(
+    (state: AppState) => state.shoppingCart.cart.orderItems.length
+  );
+
   const token: string = useSelector((state: AppState) => state.user.token);
 
   if (isLoggedIn) {
@@ -60,7 +64,9 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
       </Hidden>
       <div className={classes.grow} />
 
-      {isLoggedIn && <UserButton /> && <PopperShoppingCart orderCount={1} />}
+      {isLoggedIn && <UserButton /> && (
+        <PopperShoppingCart orderCount={orderItemsCount} />
+      )}
       <LogInOutButton isLoggedIn={isLoggedIn} />
     </Toolbar>
   );

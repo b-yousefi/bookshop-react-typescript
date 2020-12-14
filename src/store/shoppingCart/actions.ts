@@ -7,6 +7,7 @@ import {
   ADD_SHOPPING_CART,
   DELETE_SHOPPING_CART,
   CLEAR_SHOPPING_CART,
+  CLOSE_SHOPPING_CART,
 } from "./types";
 
 export function fetchShoppingCart(order: Order): ShoppingCartActionsType {
@@ -46,5 +47,11 @@ export function deleteFromShoppingCart(
 export function clearShoppingCart(): ShoppingCartActionsType {
   return {
     type: CLEAR_SHOPPING_CART,
+  };
+}
+
+export function closeShoppingCart(): ShoppingCartActionsType {
+  return {
+    type: CLOSE_SHOPPING_CART,
   };
 }

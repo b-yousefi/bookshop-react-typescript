@@ -6,6 +6,7 @@ export const CLEAR_SHOPPING_CART = "CLEAR_SHOPPING_CART";
 export const UPDATE_SHOPPING_CART = "UPDATE_SHOPPING_CART";
 export const ADD_SHOPPING_CART = "ADD_SHOPPING_CART";
 export const DELETE_SHOPPING_CART = "DELETE_SHOPPING_CART";
+export const CLOSE_SHOPPING_CART = "CLOSE_SHOPPING_CART";
 
 interface FetchShoppingCart {
   type: typeof FETCH_SHOPPING_CART;
@@ -31,9 +32,14 @@ interface DeleteShoppingCart {
   orderItem: OrderItem;
 }
 
+interface CloseShoppingCartAction {
+  type: typeof CLOSE_SHOPPING_CART;
+}
+
 export type ShoppingCartActionsType =
   | FetchShoppingCart
   | ClearShoppingCart
   | UpdateShoppingCart
   | AddShoppingCart
-  | DeleteShoppingCart;
+  | DeleteShoppingCart
+  | CloseShoppingCartAction;

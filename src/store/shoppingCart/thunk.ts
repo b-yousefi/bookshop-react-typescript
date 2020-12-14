@@ -1,5 +1,6 @@
 import axios from "axios";
 import { plainToClass } from "class-transformer";
+import Address from "../../models/Address";
 import Book from "../../models/Book";
 import Order from "../../models/Order";
 import OrderItem from "../../models/OrderItem";
@@ -10,6 +11,7 @@ import {
   deleteFromShoppingCart,
   updateShoppingCart,
   addToShoppingCart,
+  closeShoppingCart,
 } from "./actions";
 
 const USER_URL = `${process.env.REACT_APP_API_URL}/users`;
@@ -84,4 +86,19 @@ const thunkDeleteItemFromShoppingCart = (
 
   axios.delete(url);
   dispatch(deleteFromShoppingCart(orderItem));
+};
+
+export const thunkCloseShoppingCart = (toAddress: Address): AppThunk => async (
+  dispatch,
+  getState
+) => {
+  const userId = getState().user.user.id;
+  const shoppingCartId = getState().shoppingCart.cart.id;
+  const url = `${USER_URL}/${userId}/orders/${shoppingCartId}/close`;
+  await axios.post(
+    url,
+    JSON.stringify({ address: toAddress._links.self.href })
+  );
+
+  dispatch(closeShoppingCart());
 };

@@ -6,8 +6,9 @@ import {
   UPDATE_SHOPPING_CART,
   ADD_SHOPPING_CART,
   CLEAR_SHOPPING_CART,
-  ShoppingCartActionsType,
   DELETE_SHOPPING_CART,
+  CLOSE_SHOPPING_CART,
+  ShoppingCartActionsType,
 } from "./types";
 
 const initialState: ShoppingCartState = {
@@ -47,6 +48,7 @@ export function ShoppingCartReducer(
       updatedCart.totalPrice = totalPrice;
       return { ...state, ...updatedCart };
     }
+    case CLOSE_SHOPPING_CART:
     case CLEAR_SHOPPING_CART:
       return initialState;
     default:
