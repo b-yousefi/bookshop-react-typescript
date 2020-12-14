@@ -54,7 +54,10 @@ const thunkUpdateOrderItemInShoppingCart = (
   const userId = getState().user.user.id;
   const url = `${USER_URL}/${userId}/orders/${orderId}/order_items/${orderItem.id}`;
 
-  const response = await axios.patch(url, JSON.stringify(orderItem));
+  const response = await axios.patch(
+    url,
+    JSON.stringify({ ...orderItem, book: orderItem.book._links.self.href })
+  );
   let updatededOrderItem: OrderItem = plainToClass(
     OrderItem,
     response.data as Object
@@ -69,7 +72,10 @@ const thunkAddItemToShoppingCart = (orderItem: OrderItem): AppThunk => async (
   const orderId = getState().shoppingCart.cart.id;
   const userId = getState().user.user.id;
   const url = `${USER_URL}/${userId}/orders/${orderId}/order_items`;
-  const response = await axios.post(url, JSON.stringify(orderItem));
+  const response = await axios.post(
+    url,
+    JSON.stringify({ ...orderItem, book: orderItem.book._links.self.href })
+  );
   let addedOrderItem: OrderItem = plainToClass(
     OrderItem,
     response.data as Object

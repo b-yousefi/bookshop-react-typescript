@@ -30,9 +30,11 @@ interface OrderItemProps {
 
 export const ListOrderItem: React.FC<OrderItemProps> = (props) => {
   const dispatch: Dispatch<any> = useDispatch();
-  const [quantity, setQuantity] = useState(0);
+
   const [errors, setErrors] = useState<{ quantity: string }>({ quantity: "" });
   const { orderItem, isEditable, isReport } = props;
+
+  const [quantity, setQuantity] = useState(orderItem.quantity);
 
   const onCountChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (typeof event.target.value === "number") {

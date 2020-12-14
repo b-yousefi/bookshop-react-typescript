@@ -22,7 +22,15 @@ export function ShoppingCartReducer(
   switch (action.type) {
     case FETCH_SHOPPING_CART:
       return { cart: action.cart };
-    case ADD_SHOPPING_CART:
+    case ADD_SHOPPING_CART: {
+      const updatedOrderItems = [...state.cart.orderItems];
+      updatedOrderItems.push(action.orderItem);
+      const updatedCart = { ...state.cart };
+      updatedCart.orderItems = updatedOrderItems;
+      const totalPrice = computeTotalPrice(updatedOrderItems);
+      updatedCart.totalPrice = totalPrice;
+      return { ...state, ...updatedCart };
+    }
     case UPDATE_SHOPPING_CART: {
       const updatedOrderItems = [...state.cart.orderItems];
       const orderItemIndex = state.cart.orderItems.findIndex(
