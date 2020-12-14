@@ -5,6 +5,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import { AddressListPage as AddressList } from "./AddressList";
 import { UserFormPage as UserForm } from "./UserForm";
+import { OrderList } from "./OrderList";
 
 export const UserProfilePage: React.FC = () => {
   const classes = useStyles();
@@ -52,7 +53,7 @@ export const UserProfilePage: React.FC = () => {
             <Switch>
               <Route exact={true} path="/user_info" component={UserForm} />
               <Route path="/user_info/addresses" component={AddressList} />
-              {/* <Route path="/user_info/orders" component={OrderList} /> */}
+              <Route path="/user_info/orders" component={OrderList} />
             </Switch>
           </Fragment>
         )}

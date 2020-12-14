@@ -1,5 +1,6 @@
 import Order from "../../models/Order";
 import OrderItem from "../../models/OrderItem";
+import OrderStatus from "../../models/OrderStatus";
 import { ShoppingCartState } from "./state";
 import {
   FETCH_SHOPPING_CART,
@@ -12,7 +13,14 @@ import {
 } from "./types";
 
 const initialState: ShoppingCartState = {
-  cart: new Order("0", 0, "init", new Date(), []),
+  cart: new Order(
+    "0",
+    0,
+    "init",
+    new Date(),
+    [],
+    new OrderStatus("OPEN", new Date().toISOString())
+  ),
 };
 
 export function ShoppingCartReducer(
