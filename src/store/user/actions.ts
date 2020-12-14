@@ -4,6 +4,7 @@ import {
   REGISTER_USER,
   LOGIN_USER,
   LOGOUT_USER,
+  UPDATE_USER,
 } from "./types";
 import User from "../../models/User";
 
@@ -31,5 +32,12 @@ export function loginUser(token: string): UserActionTypes {
 export function logoutUser(): UserActionTypes {
   return {
     type: LOGOUT_USER,
+  };
+}
+
+export function updateUser(user: User): UserActionTypes {
+  return {
+    type: UPDATE_USER,
+    user,
   };
 }

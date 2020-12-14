@@ -1,7 +1,13 @@
 import { AppThunk } from "./../index";
 import axios from "axios";
 
-import { fetchUser, registerUser, loginUser, logoutUser } from "./actions";
+import {
+  fetchUser,
+  registerUser,
+  loginUser,
+  logoutUser,
+  updateUser,
+} from "./actions";
 import { fetchShoppingCart } from "../shoppingCart/actions";
 import User from "../../models/User";
 import { plainToClass } from "class-transformer";
@@ -55,4 +61,15 @@ export const thunkLoginUser = (
 export const thunkLogoutUser = (): AppThunk => async (dispatch) => {
   delete axios.defaults.headers.common["Authorization"];
   dispatch(logoutUser());
+};
+
+export const thunkUpdateUser = (user: User): AppThunk => async (dispatch) => {
+  const url = user._links?.self.href;
+  if (url) {
+    const response = await axios.patch(url, JSON.stringify(user));
+    let updatededUser: User = plainToClass(User, response.data as User);
+    dispatch(updateUser(updatededUser));
+  } else {
+    throw new Error("Link to user does not exists!!!");
+  }
 };

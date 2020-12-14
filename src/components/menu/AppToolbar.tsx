@@ -11,6 +11,7 @@ import { LogInOutButton } from "./LogInOutButton";
 import { CategoryButton } from "./CategoryButton";
 import { AppState } from "../../store";
 import { PopperShoppingCart } from "../ShoppingCart/PopperShoppingCart";
+import { UserProfilePage } from "../../routes/UserProfile";
 
 interface AppToolbarProps {
   onMenuClicked: () => void;
@@ -64,8 +65,11 @@ export const AppToolbar: React.FC<AppToolbarProps> = (props) => {
       </Hidden>
       <div className={classes.grow} />
 
-      {isLoggedIn && <UserButton /> && (
-        <PopperShoppingCart orderCount={orderItemsCount} />
+      {isLoggedIn && (
+        <div>
+          <PopperShoppingCart orderCount={orderItemsCount} />
+          <UserButton />
+        </div>
       )}
       <LogInOutButton isLoggedIn={isLoggedIn} />
     </Toolbar>
