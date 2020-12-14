@@ -30,6 +30,7 @@
     "react-final-form": "^6.5.2",
     "react-map-gl": "^5.2.11",
     "react-map-gl-geocoder": "^2.1.6",
+    "react-phone-input-2": "^2.13.9",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",

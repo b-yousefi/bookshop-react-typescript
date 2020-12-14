@@ -8,6 +8,7 @@ import {
   IconButton,
   FormHelperText,
 } from "@material-ui/core";
+import { FieldMetaState } from "react-final-form";
 
 interface PasswordControlProps {
   name: string;
@@ -16,7 +17,7 @@ interface PasswordControlProps {
   value?: string;
   onChange: (event: React.ChangeEvent<any>) => void;
   fullWidth?: boolean;
-  //   meta;
+  meta?: FieldMetaState<string>;
   error?: string;
 }
 
@@ -32,7 +33,7 @@ export const PasswordControl: React.FC<PasswordControlProps> = (props) => {
     value,
     onChange,
     fullWidth,
-    // meta,
+    meta,
     error,
   } = props;
 
@@ -46,14 +47,14 @@ export const PasswordControl: React.FC<PasswordControlProps> = (props) => {
 
   let showError = false;
   let message = "";
-  if (error !== undefined && error.length > 0) {
+  if (error && error.length > 0) {
     showError = true;
     message = error;
   }
-  //   if (meta !== undefined && meta.error && meta.touched) {
-  //     showError = true;
-  //     message = meta.error;
-  //   }
+  if (meta !== undefined && meta.error && meta.touched) {
+    showError = true;
+    message = meta.error;
+  }
 
   return (
     <FormControl
