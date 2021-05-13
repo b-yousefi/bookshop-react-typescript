@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import { AppBar, Hidden } from "@material-ui/core";
 import { AppToolbar } from "./AppToolbar";
-import { DrawerMenu } from "./DrawerMenu";
+import { DrawerMenu } from "./DrawerMenu/DrawerMenu";
 import { thunkFetchAuthors } from "../../store/author/thunk";
 import { thunkFetchPublications } from "../../store/publication/thunk";
-import { thunkFetchUser } from "../../store/user/thunk";
+import { thunkFetchUser, thunkLogoutUser } from "../../store/user/thunk";
 import { AppState } from "../../store";
 
 export const AppMenu: React.FC = () => {
@@ -22,17 +22,23 @@ export const AppMenu: React.FC = () => {
     (state: AppState) => state.user.user.username
   );
 
-  const fetchedUser = useCallback(() => dispatch(thunkFetchUser(username)), [
-    dispatch,
-    username,
-  ]);
+  const fetchedUser = useCallback(
+    () => dispatch(thunkFetchUser(username)),
+    [dispatch, username]
+  );
 
-  const fetchedAuthors = useCallback(() => dispatch(thunkFetchAuthors()), [
-    dispatch,
-  ]);
+  const fetchedAuthors = useCallback(
+    () => dispatch(thunkFetchAuthors()),
+    [dispatch]
+  );
 
   const fetchedPublications = useCallback(
     () => dispatch(thunkFetchPublications()),
+    [dispatch]
+  );
+
+  const userLoggedOut = useCallback(
+    () => dispatch(thunkLogoutUser()),
     [dispatch]
   );
 
@@ -44,19 +50,18 @@ export const AppMenu: React.FC = () => {
     }
   }, [fetchedAuthors, fetchedPublications, fetchedUser, isLoggedIn]);
 
-  const toggleDrawer = (open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent
-  ) => {
-    if (
-      event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
-    ) {
-      return;
-    }
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
 
-    setOpenDrawer(open);
-  };
+      setOpenDrawer(open);
+    };
 
   const openDrawerClicked = () => {
     setOpenDrawer(true);
@@ -68,7 +73,11 @@ export const AppMenu: React.FC = () => {
         <AppToolbar onMenuClicked={openDrawerClicked} />
       </AppBar>
       <Hidden mdUp>
-        <DrawerMenu open={openDrawer} onToggleDrawer={toggleDrawer} />
+        <DrawerMenu
+          open={openDrawer}
+          onToggleDrawer={toggleDrawer}
+          logoutUser={userLoggedOut}
+        />
       </Hidden>
     </React.Fragment>
   );
