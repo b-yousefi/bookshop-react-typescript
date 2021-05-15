@@ -25,7 +25,7 @@ interface OrderItemProps {
   isEditable: boolean;
   isReport: boolean;
   canOrder?: boolean;
-  onListItemClicked: () => void;
+  onListItemClicked?: () => void;
 }
 
 export const ListOrderItem: React.FC<OrderItemProps> = (props) => {
@@ -37,17 +37,14 @@ export const ListOrderItem: React.FC<OrderItemProps> = (props) => {
   const [quantity, setQuantity] = useState(orderItem.quantity);
 
   const onCountChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof event.target.value === "number") {
-      if (event.target.value > 0) {
-        setQuantity(event.target.value);
-      } else if (event.target.value === 0) {
+      const number = Number(event.target.value);
+      if (number > 0) {
+        setQuantity(number);
+      } else if (number === 0) {
         setErrors({ quantity: "Count cannot be zero" });
       } else {
         setErrors({ quantity: "Count cannot be negative" });
       }
-    } else {
-      setErrors({ quantity: "Count must be a positive number" });
-    }
   };
 
   const onMouseLeave = () => () => {

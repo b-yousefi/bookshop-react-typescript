@@ -9,6 +9,7 @@ import { Route, Switch, RouteComponentProps } from "react-router-dom";
 import { AppState } from "../store";
 import { OrderItem } from "../components/OrderItem";
 import { thunkFetchOrders } from "../store/order/thunk";
+import { OrderContent } from "./OrderContent";
 
 export const OrderList: React.FC<RouteComponentProps> = (props) => {
   const orders = useSelector((state: AppState) => state.orders.arr);
@@ -65,7 +66,7 @@ export const OrderList: React.FC<RouteComponentProps> = (props) => {
             </Box>
           </Box>
         </Route>
-        {/* <Route path={`${props.match.url}/:id`} component={OrderContent} /> */}
+        <Route path={`${props.match.url}/:id`} component={OrderContent} />
       </Switch>
     </Box>
   );
