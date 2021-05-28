@@ -13,10 +13,10 @@ import {
 } from "@material-ui/core";
 import { NavLink, Redirect } from "react-router-dom";
 
-import { ShoppingCart } from "../components/ShoppingCart/ShoppingCart";
+import { ShoppingCart } from "components/ShoppingCart/ShoppingCart";
 import { AddressListPage } from "./AddressList";
-import Address from "../models/Address";
-import { thunkCloseShoppingCart } from "../store/shoppingCart/thunk";
+import Address from "models/Address";
+import { thunkCloseShoppingCart } from "store/shoppingCart/thunk";
 
 export const OrderPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);

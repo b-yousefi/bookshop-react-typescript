@@ -9,12 +9,12 @@ import {
   Hidden,
 } from "@material-ui/core";
 import { RouteComponentProps } from "react-router-dom";
-import { Identifiable } from "../models/Identifiable";
+import { Identifiable } from "models/Identifiable";
 import { useSelector } from "react-redux";
-import { AppState } from "../store";
-import { AuthorLink } from "../components/UI/AuthorLink";
-import { CategoryLink } from "../components/UI/CategoryLink";
-import { PublicationLink } from "../components/UI/PublicationLink";
+import { AppState } from "store";
+import { AuthorLink } from "components/UI/AuthorLink";
+import { CategoryLink } from "components/UI/CategoryLink";
+import { PublicationLink } from "components/UI/PublicationLink";
 
 export const BookContentPage: React.FC<RouteComponentProps<Identifiable>> = (
   props

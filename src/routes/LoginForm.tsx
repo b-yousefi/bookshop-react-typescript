@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { thunkLoginUser } from "../store/user/thunk";
+import { thunkLoginUser } from "store/user/thunk";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Box, Button, Grid, Link, Paper, TextField } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import { PasswordControl } from "../components/UI/PasswordControl";
+import { PasswordControl } from "components/UI/PasswordControl";
 
 interface LoginFormInput {
   username: string;

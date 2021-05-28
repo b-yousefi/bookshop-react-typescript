@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import Author from "../models/Author";
+import Author from "models/Author";
 
 interface AuthorItemProps extends RouteComponentProps {
   author: Author;

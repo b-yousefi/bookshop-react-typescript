@@ -5,11 +5,11 @@ import { Field, Form } from "react-final-form";
 import { TextField } from "final-form-material-ui";
 import { Button, Grid, Paper } from "@material-ui/core";
 
-import { PasswordControl } from "../components/UI/PasswordControl";
-import { PhoneNumberControl } from "../components/UI/PhoneNumberControl";
-import { AppState } from "../store";
-import User from "../models/User";
-import { thunkRegsiterUser, thunkUpdateUser } from "../store/user/thunk";
+import { PasswordControl } from "components/UI/PasswordControl";
+import { PhoneNumberControl } from "components/UI/PhoneNumberControl";
+import { AppState } from "store";
+import User from "models/User";
+import { thunkRegsiterUser, thunkUpdateUser } from "store/user/thunk";
 
 class UserInput extends User {
   confirmPassword?: string;

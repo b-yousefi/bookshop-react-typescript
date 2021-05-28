@@ -4,12 +4,12 @@ import { Dispatch } from "redux";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Box, Button, List } from "@material-ui/core";
 
-import { AppState } from "../store";
+import { AppState } from "store";
 import {
   thunkFetchAddresses,
   thunkDeleteAddress,
-} from "../store/address/thunk";
-import { AddressItem } from "../components/AddressItem";
+} from "store/address/thunk";
+import { AddressItem } from "components/AddressItem";
 import {
   Route,
   Switch,
@@ -17,9 +17,9 @@ import {
   withRouter,
   RouteComponentProps,
 } from "react-router-dom";
-import emptyListPic from "../resources/images/emptyList.jpg";
-import Address from "../models/Address";
-import { AddressForm } from "../components/AddressForm";
+import emptyListPic from "resources/images/emptyList.jpg";
+import Address from "models/Address";
+import { AddressForm } from "components/AddressForm";
 
 interface AddressListProps extends RouteComponentProps {
   isEditable: boolean;

@@ -3,9 +3,9 @@ import React, { useEffect, useCallback, useState } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 
 import { Dispatch } from "redux";
-import Category from "../../models/Category";
-import { AppState } from "../../store";
-import { thunkFetchCategories } from "../../store/category/thunk";
+import Category from "models/Category";
+import { AppState } from "store";
+import { thunkFetchCategories } from "store/category/thunk";
 import { PopperButton } from "../UI/PopperButton";
 import { CategoryMenuItem } from "./CategoryMenuItem";
 

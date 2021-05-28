@@ -2,13 +2,13 @@ import React, { useEffect, useCallback } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { thunkFetchOrderDetails } from "../store/order/thunk";
-import { AppState } from "../store";
+import { thunkFetchOrderDetails } from "store/order/thunk";
+import { AppState } from "store";
 import { RouteComponentProps } from "react-router-dom";
-import { Identifiable } from "../models/Identifiable";
+import { Identifiable } from "models/Identifiable";
 import { Box, Divider, Grid, List, Typography } from "@material-ui/core";
-import emptyListPic from "../resources/images/emptyList.jpg";
-import { ListOrderItem } from "../components/ShoppingCart/ListOrderItem";
+import emptyListPic from "resources/images/emptyList.jpg";
+import { ListOrderItem } from "components/ShoppingCart/ListOrderItem";
 
 export const OrderContent: React.FC<RouteComponentProps<Identifiable>> = (
   props

@@ -1,14 +1,14 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
-import { AppState } from "../store";
+import { AppState } from "store";
 import { RouteComponentProps, withRouter } from "react-router";
 import { CardMedia, Grid, List, Typography } from "@material-ui/core";
 
-import { SearchPanel } from "../components/filter/SearchPanel";
-import { selectAuthor } from "../store/filter/actions";
+import { SearchPanel } from "components/filter/SearchPanel";
+import { selectAuthor } from "store/filter/actions";
 import { BookList } from "./BookList";
-import { Identifiable } from "../models/Identifiable";
+import { Identifiable } from "models/Identifiable";
 
 const AuthorContent: React.FC<RouteComponentProps<Identifiable>> = (props) => {
   const dispatch: Dispatch<any> = useDispatch();

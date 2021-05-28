@@ -9,9 +9,9 @@ import { NavLink } from "react-router-dom";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { LogInOutButton } from "./LogInOutButton";
 import { CategoryButton } from "./CategoryButton";
-import { AppState } from "../../store";
+import { AppState } from "store";
 import { PopperShoppingCart } from "../ShoppingCart/PopperShoppingCart";
-import { UserProfilePage } from "../../routes/UserProfile";
+import { UserProfilePage } from "routes/UserProfile";
 
 interface AppToolbarProps {
   onMenuClicked: () => void;

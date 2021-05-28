@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../store";
 import { Grid } from "@material-ui/core";
 
-import { PublicationItem } from "../components/PublicationItem";
+import { PublicationItem } from "components/PublicationItem";
 
 export const PublicationListPage: React.FC = () => {
   const publications = useSelector((state: AppState) => state.publications.arr);

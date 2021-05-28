@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import { RouteComponentProps, withRouter } from "react-router";
-import { AppState } from "../store";
+import { AppState } from "store";
 import {
   Paper,
   List,
@@ -12,12 +12,12 @@ import {
   ListSubheader,
 } from "@material-ui/core";
 
-import { Identifiable } from "../models/Identifiable";
-import { CategoryLink } from "../components/UI/CategoryLink";
-import { SearchPanel } from "../components/filter/SearchPanel";
+import { Identifiable } from "models/Identifiable";
+import { CategoryLink } from "components/UI/CategoryLink";
+import { SearchPanel } from "components/filter/SearchPanel";
 import { BookList } from "./BookList";
-import { CategoryItem } from "../components/CategoryItem";
-import { selectCategory } from "../store/filter/actions";
+import { CategoryItem } from "components/CategoryItem";
+import { selectCategory } from "store/filter/actions";
 
 const CategoryList: React.FC<RouteComponentProps<Identifiable>> = (props) => {
   const dispatch: Dispatch<any> = useDispatch();

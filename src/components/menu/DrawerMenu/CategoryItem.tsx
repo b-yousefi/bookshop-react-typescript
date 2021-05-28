@@ -3,7 +3,7 @@ import { ExpandLess } from "@material-ui/icons";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Category from "../../../models/Category";
+import Category from "models/Category";
 import { SubCategory } from "./SubCategoryItem";
 
 interface CategoryItemProps {

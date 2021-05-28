@@ -13,8 +13,8 @@ import {
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import Address from "../models/Address";
-import { Map } from "../components/UI/Map";
+import Address from "models/Address";
+import { Map } from "components/UI/Map";
 
 interface AddressItemProps {
   address: Address;

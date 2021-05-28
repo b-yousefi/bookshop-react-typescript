@@ -6,9 +6,9 @@ import { Box, List } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 import { Route, Switch, RouteComponentProps } from "react-router-dom";
 
-import { AppState } from "../store";
-import { OrderItem } from "../components/OrderItem";
-import { thunkFetchOrders } from "../store/order/thunk";
+import { AppState } from "store";
+import { OrderItem } from "components/OrderItem";
+import { thunkFetchOrders } from "store/order/thunk";
 import { OrderContent } from "./OrderContent";
 
 export const OrderList: React.FC<RouteComponentProps> = (props) => {

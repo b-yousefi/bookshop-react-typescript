@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import { NavLink } from "react-router-dom";
 import { PopperLoginForm } from "../PopperLoginForm";
-import { thunkLogoutUser } from "../../store/user/thunk";
+import { thunkLogoutUser } from "store/user/thunk";
 
 interface LogInOutButtonProps {
   isLoggedIn: boolean;

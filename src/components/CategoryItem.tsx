@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { ListItem, ListItemText } from "@material-ui/core";
 
-import Category from "../models/Category";
+import Category from "models/Category";
 
 interface CategoryItemProps {
   category: Category;

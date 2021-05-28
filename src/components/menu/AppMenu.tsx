@@ -4,10 +4,10 @@ import { Dispatch } from "redux";
 import { AppBar, Hidden } from "@material-ui/core";
 import { AppToolbar } from "./AppToolbar";
 import { DrawerMenu } from "./DrawerMenu/DrawerMenu";
-import { thunkFetchAuthors } from "../../store/author/thunk";
-import { thunkFetchPublications } from "../../store/publication/thunk";
-import { thunkFetchUser, thunkLogoutUser } from "../../store/user/thunk";
-import { AppState } from "../../store";
+import { thunkFetchAuthors } from "store/author/thunk";
+import { thunkFetchPublications } from "store/publication/thunk";
+import { thunkFetchUser, thunkLogoutUser } from "store/user/thunk";
+import { AppState } from "store";
 
 export const AppMenu: React.FC = () => {
   const [openDrawer, setOpenDrawer] = useState(false);

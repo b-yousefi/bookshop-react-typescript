@@ -15,8 +15,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { History } from "history";
 
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { thunkUpdateShoppingCart } from "../../store/shoppingCart/thunk";
-import OrderItem from "../../models/OrderItem";
+import { thunkUpdateShoppingCart } from "store/shoppingCart/thunk";
+import OrderItem from "models/OrderItem";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 

@@ -4,9 +4,9 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RouteComponentProps, withRouter } from "react-router";
-import { AppState } from "../store";
-import { AuthorItem } from "../components/AuthorItem";
-import emptyListPic from "../resources/images/emptyList.jpg";
+import { AppState } from "store";
+import { AuthorItem } from "components/AuthorItem";
+import emptyListPic from "resources/images/emptyList.jpg";
 import { AuthorContentPage } from "./AuthorContent";
 
 const AuthorList: React.FC<RouteComponentProps> = (props) => {

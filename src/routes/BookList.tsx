@@ -4,10 +4,10 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Pagination } from "@material-ui/lab";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
-import { AppState } from "../store";
-import { BookItem } from "../components/BookItem";
-import { thunkFilterBooksByPage } from "../store/book/thunk";
-import emptyListPic from "../resources/images/emptyList.jpg";
+import { AppState } from "store";
+import { BookItem } from "components/BookItem";
+import { thunkFilterBooksByPage } from "store/book/thunk";
+import emptyListPic from "resources/images/emptyList.jpg";
 
 export const BookList: React.FC = () => {
   const [page, setPage] = useState(1);

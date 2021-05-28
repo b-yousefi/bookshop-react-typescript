@@ -8,10 +8,10 @@ import {
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Category from "../../../models/Category";
+import Category from "models/Category";
 import ClassIcon from "@material-ui/icons/Class";
 
-import { AppState } from "../../../store";
+import { AppState } from "store";
 import { CategoryItem } from "./CategoryItem";
 
 export const CategoryList: React.FC = () => {

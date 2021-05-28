@@ -16,7 +16,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../store";
+import { AppState } from "store";
 import { CategoryList } from "./CategoryListItem";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 

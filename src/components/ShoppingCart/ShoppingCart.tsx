@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Button, Divider, Grid, List, Typography } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { thunkFetchShoppingCart } from "../../store/shoppingCart/thunk";
-import Order from "../../models/Order";
+import { thunkFetchShoppingCart } from "store/shoppingCart/thunk";
+import Order from "models/Order";
 import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "../../store";
+import { AppState } from "store";
 import { Dispatch } from "redux";
 import { ListOrderItem } from "./ListOrderItem";
 

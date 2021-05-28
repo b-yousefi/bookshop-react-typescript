@@ -18,9 +18,9 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
 
-import Book from "../models/Book";
-import { AppState } from "../store";
-import { thunkUpdateShoppingCart } from "../store/shoppingCart/thunk";
+import Book from "models/Book";
+import { AppState } from "store";
+import { thunkUpdateShoppingCart } from "store/shoppingCart/thunk";
 
 interface BookItemProps {
   book: Book;

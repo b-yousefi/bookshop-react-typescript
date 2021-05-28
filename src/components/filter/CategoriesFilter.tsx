@@ -4,9 +4,9 @@ import { Dispatch } from "redux";
 import { ListItem } from "@material-ui/core";
 
 import { CheckBoxTag } from "./CheckBoxTag";
-import { FilterItem } from "../../models/FilterItem";
-import { AppState } from "../../store";
-import { setCategoriesFilter } from "../../store/filter/actions";
+import { FilterItem } from "models/FilterItem";
+import { AppState } from "store";
+import { setCategoriesFilter } from "store/filter/actions";
 
 interface CategoriesFilterProps {
   selectedCategories?: FilterItem[];

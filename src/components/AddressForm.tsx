@@ -5,13 +5,13 @@ import { Button, Grid, Paper } from "@material-ui/core";
 import { TextField } from "final-form-material-ui";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
-import { thunkAddAddress, thunkEditAddress } from "../store/address/thunk";
+import { thunkAddAddress, thunkEditAddress } from "store/address/thunk";
 
-import { Map } from "../components/UI/Map";
-import Address from "../models/Address";
-import MarkerPoint from "../models/MarkerPoint";
-import { AppState } from "../store";
-import { Identifiable } from "../models/Identifiable";
+import { Map } from "components/UI/Map";
+import Address from "models/Address";
+import MarkerPoint from "models/MarkerPoint";
+import { AppState } from "store";
+import { Identifiable } from "models/Identifiable";
 
 interface AddressFormProps extends RouteComponentProps<Identifiable> {
   onClick: () => void;

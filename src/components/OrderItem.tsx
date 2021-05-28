@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { ListItem, Grid, Typography } from "@material-ui/core";
 
-import Order from "../models/Order";
+import Order from "models/Order";
 
 interface OrderItemProps {
   order: Order;

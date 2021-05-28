@@ -9,7 +9,7 @@ import {
   ListSubheader,
   Paper,
 } from "@material-ui/core";
-import Category from "../../models/Category";
+import Category from "models/Category";
 
 interface CategoryMenuItemProps {
   category: Category;

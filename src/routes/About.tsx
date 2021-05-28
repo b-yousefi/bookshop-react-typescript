@@ -16,7 +16,7 @@ import {
   GitHub as GitHubIcon,
   Mail as MailIcon,
 } from "@material-ui/icons";
-import pic from "../resources/images/BehnazYousefi.jpg";
+import pic from "resources/images/BehnazYousefi.jpg";
 
 export const AboutPage: React.FC = () => {
   return (

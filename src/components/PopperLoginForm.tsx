@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LoginForm } from "../routes/LoginForm";
+import { LoginForm } from "routes/LoginForm";
 import { PopperButton } from "./UI/PopperButton";
 
 export const PopperLoginForm: React.FC = () => {

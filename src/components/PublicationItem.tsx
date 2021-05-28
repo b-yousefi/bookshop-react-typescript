@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Publication from "../models/Publication";
+import Publication from "models/Publication";
 
 interface PublicationItemProps {
   publication: Publication;
