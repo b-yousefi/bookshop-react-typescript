@@ -1,12 +1,12 @@
-import { PageInfo } from "./../../models/PageInfo";
+import { PageInfo } from "models/PageInfo";
 import {
   BookActionTypes,
   FETCH_BOOK,
   FILTER_BOOKS,
   LOADING_BOOKS,
 } from "./types";
-import Book from "../../models/Book";
-import BooksFilter from "../../models/BooksFilter";
+import Book from "models/Book";
+import BooksFilter from "models/BooksFilter";
 
 export function fetchBook(book: Book): BookActionTypes {
   return {

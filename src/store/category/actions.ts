@@ -1,4 +1,4 @@
-import Category from "../../models/Category";
+import Category from "models/Category";
 import { CategoryActionTypes, FETCH_CATEGORIES } from "./types";
 
 export function fetchCategories(categories: Category[]): CategoryActionTypes {

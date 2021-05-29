@@ -1,6 +1,6 @@
-import Order from "../../models/Order";
-import OrderItem from "../../models/OrderItem";
-import OrderStatus from "../../models/OrderStatus";
+import Order from "models/Order";
+import OrderItem from "models/OrderItem";
+import OrderStatus from "models/OrderStatus";
 import { ShoppingCartState } from "./state";
 import {
   FETCH_SHOPPING_CART,

@@ -1,4 +1,4 @@
-import { FilterItem } from "../../models/FilterItem";
+import { FilterItem } from "models/FilterItem";
 import {
   FilterActionTypes,
   SET_AUTHORS_FILTER,

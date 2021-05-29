@@ -1,4 +1,4 @@
-import BooksFilter from "./../../models/BooksFilter";
+import BooksFilter from "models/BooksFilter";
 export interface FilterState {
   bookFilter: BooksFilter;
 }

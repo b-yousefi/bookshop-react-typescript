@@ -1,4 +1,4 @@
-import Publication from "../../models/Publication";
+import Publication from "models/Publication";
 import { FETCH_PUBLICATIONS, PublicationActionTypes } from "./types";
 
 export function fetchPublications(

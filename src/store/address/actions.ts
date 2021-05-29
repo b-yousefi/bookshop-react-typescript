@@ -6,7 +6,7 @@ import {
   EDIT_ADDRESS,
   DELETE_ADDRESS,
 } from "./types";
-import Address from "../../models/Address";
+import Address from "models/Address";
 
 export function fetchAddresses(addresses: Address[]): AddressActionTypes {
   return {

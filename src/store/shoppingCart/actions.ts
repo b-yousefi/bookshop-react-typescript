@@ -1,5 +1,5 @@
-import Order from "../../models/Order";
-import OrderItem from "../../models/OrderItem";
+import Order from "models/Order";
+import OrderItem from "models/OrderItem";
 import {
   ShoppingCartActionsType,
   FETCH_SHOPPING_CART,

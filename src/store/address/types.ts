@@ -1,4 +1,4 @@
-import Address from "../../models/Address";
+import Address from "models/Address";
 
 export const FETCH_ADDRESSES = "FETCH_ADDRESSES";
 export const SELECT_ADDRESS = "SELECT_ADDRESS";

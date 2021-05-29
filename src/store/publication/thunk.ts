@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { fetchPublications } from "./actions";
 import { AppThunk } from "../index";
-import Publication from "../../models/Publication";
+import Publication from "models/Publication";
 import { plainToClass } from "class-transformer";
 
 const Publications_URL = `${process.env.REACT_APP_API_URL}/publications`;

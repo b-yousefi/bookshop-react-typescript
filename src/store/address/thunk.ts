@@ -7,7 +7,7 @@ import {
   deleteAddress,
 } from "./actions";
 import { AppThunk } from "../index";
-import Address from "../../models/Address";
+import Address from "models/Address";
 import { plainToClass } from "class-transformer";
 
 const Address_URL = `${process.env.REACT_APP_API_URL}/addresses`;

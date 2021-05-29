@@ -1,5 +1,5 @@
-import Order from "../../models/Order";
-import OrderItem from "../../models/OrderItem";
+import Order from "models/Order";
+import OrderItem from "models/OrderItem";
 
 export const FETCH_SHOPPING_CART = "FETCH_SHOPPING_CART";
 export const CLEAR_SHOPPING_CART = "CLEAR_SHOPPING_CART";

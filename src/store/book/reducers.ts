@@ -4,9 +4,9 @@ import {
   LOADING_BOOKS,
   BookActionTypes,
 } from "./types";
-import Book from "../../models/Book";
+import Book from "models/Book";
 import { BookState } from "./state";
-import BooksFilter from "../../models/BooksFilter";
+import BooksFilter from "models/BooksFilter";
 
 const INITIAL_STATE: BookState = {
   arr: [],

@@ -1,4 +1,4 @@
-import { FilterItem } from "./../../models/FilterItem";
+import { FilterItem } from "models/FilterItem";
 export const SET_AUTHORS_FILTER = "SET_AUTHORS_FILTER";
 export const SET_PUBLICATIONS_FILTER = "SET_PUBLICATIONS_FILTER";
 export const SET_CATEGORIES_FILTER = "SET_CATEGORIES_FILTER";

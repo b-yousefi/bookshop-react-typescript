@@ -1,6 +1,6 @@
 import { FETCH_CATEGORIES, CategoryActionTypes } from "./types";
 import { CategoryState } from "./state";
-import Category from "../../models/Category";
+import Category from "models/Category";
 
 const initialState: CategoryState = {
   arr: [],

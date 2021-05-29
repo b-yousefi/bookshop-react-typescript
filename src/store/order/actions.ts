@@ -1,6 +1,6 @@
 import { OrderActionTypes, FETCH_ORDERS, FETCH_ORDER_DETAILS } from "./types";
-import Order from "../../models/Order";
-import { PageInfo } from "./../../models/PageInfo";
+import Order from "models/Order";
+import { PageInfo } from "models/PageInfo";
 
 export function fetchOrders(
   orders: Order[],

@@ -1,11 +1,11 @@
-import { PageInfo } from "./../../models/PageInfo";
+import { PageInfo } from "models/PageInfo";
 import axios from "axios";
 import _ from "lodash";
-import Book from "../../models/Book";
+import Book from "models/Book";
 import { fetchBook, filterBooks, loadingBooks } from "./actions";
 import { AppThunk } from "../index";
 import { plainToClass } from "class-transformer";
-import BooksFilter from "../../models/BooksFilter";
+import BooksFilter from "models/BooksFilter";
 
 const BOOK_URL = `${process.env.REACT_APP_API_URL}/books`;
 

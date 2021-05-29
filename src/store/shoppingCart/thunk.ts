@@ -1,9 +1,9 @@
 import axios from "axios";
 import { plainToClass } from "class-transformer";
-import Address from "../../models/Address";
-import Book from "../../models/Book";
-import Order from "../../models/Order";
-import OrderItem from "../../models/OrderItem";
+import Address from "models/Address";
+import Book from "models/Book";
+import Order from "models/Order";
+import OrderItem from "models/OrderItem";
 
 import { AppThunk } from "./../index";
 import {

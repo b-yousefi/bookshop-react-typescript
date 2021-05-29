@@ -1,4 +1,4 @@
-import Author from "../../models/Author";
+import Author from "models/Author";
 
 export interface AuthorState {
   arr: Author[];

@@ -1,5 +1,5 @@
 import { AuthorActionTypes, FETCH_AUTHORS, SELECT_AUTHOR } from "./types";
-import Author from "../../models/Author";
+import Author from "models/Author";
 
 export function fetchAuthors(authors: Author[]): AuthorActionTypes {
   return {

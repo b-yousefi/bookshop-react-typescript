@@ -1,4 +1,4 @@
-import Category from "../../models/Category";
+import Category from "models/Category";
 
 export const FETCH_CATEGORIES = "FETCH_CATEGORIES";
 

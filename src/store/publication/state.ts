@@ -1,4 +1,4 @@
-import Publication from "../../models/Publication";
+import Publication from "models/Publication";
 
 export interface PublicationState {
   arr: Publication[];

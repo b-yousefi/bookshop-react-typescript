@@ -1,4 +1,4 @@
-import User from "../../models/User";
+import User from "models/User";
 
 export const FETCH_USER = "FETCH_USER";
 export const REGISTER_USER = "REGISTER_USER";

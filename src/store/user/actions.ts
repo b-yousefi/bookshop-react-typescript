@@ -6,7 +6,7 @@ import {
   LOGOUT_USER,
   UPDATE_USER,
 } from "./types";
-import User from "../../models/User";
+import User from "models/User";
 
 export function fetchUser(user: User): UserActionTypes {
   return {

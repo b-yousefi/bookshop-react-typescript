@@ -1,6 +1,6 @@
-import { PageInfo } from "./../../models/PageInfo";
-import Book from "../../models/Book";
-import BooksFilter from "../../models/BooksFilter";
+import { PageInfo } from "models/PageInfo";
+import Book from "models/Book";
+import BooksFilter from "models/BooksFilter";
 
 export interface BookState {
   arr: Book[];

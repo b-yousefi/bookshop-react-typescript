@@ -1,4 +1,4 @@
-import Author from "../../models/Author";
+import Author from "models/Author";
 
 export const FETCH_AUTHORS = "FETCH_AUTHORS";
 export const SELECT_AUTHOR = "SELECT_AUTHOR";

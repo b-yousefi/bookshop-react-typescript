@@ -40,14 +40,13 @@ export const CategoryList: React.FC = () => {
       <div>
         <ListItem button onClick={handleClickCategoryList}>
           <ListItemIcon>
-            <ClassIcon />{" "}
+            <ClassIcon />
           </ListItemIcon>
           <ListItemText primary="Categories" />
           {openCategoryList ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={openCategoryList} timeout="auto" unmountOnExit>
           <List component="nav">
-            {" "}
             {categories.map((category) => {
               return (
                 <CategoryItem

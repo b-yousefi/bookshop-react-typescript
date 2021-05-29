@@ -1,4 +1,4 @@
-import Publication from "../../models/Publication";
+import Publication from "models/Publication";
 
 export const FETCH_PUBLICATIONS = "FETCH_PUBLICATIONS";
 

@@ -9,9 +9,9 @@ import {
   updateUser,
 } from "./actions";
 import { fetchShoppingCart } from "../shoppingCart/actions";
-import User from "../../models/User";
+import User from "models/User";
 import { plainToClass } from "class-transformer";
-import Order from "../../models/Order";
+import Order from "models/Order";
 
 const USER_URL = `${process.env.REACT_APP_API_URL}/users`;
 

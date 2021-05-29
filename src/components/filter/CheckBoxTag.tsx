@@ -28,7 +28,6 @@ export const CheckBoxTag: React.FC<CheckBoxTagProps> = (props) => {
       getOptionLabel={(option) => option.name}
       value={props.value}
       onChange={(_event, newValue) => {
-        //setValue(newValue);
         props.onChange(newValue);
       }}
       getOptionSelected={(option, value) => {

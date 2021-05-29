@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { fetchAuthors } from "./actions";
 import { AppThunk } from "../index";
-import Author from "../../models/Author";
+import Author from "models/Author";
 import { plainToClass } from "class-transformer";
 
 const Author_URL = `${process.env.REACT_APP_API_URL}/authors`;

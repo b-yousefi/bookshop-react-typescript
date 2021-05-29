@@ -2,9 +2,9 @@ import axios from "axios";
 
 import { fetchOrderDetails, fetchOrders } from "./actions";
 import { AppThunk } from "../index";
-import Order from "../../models/Order";
+import Order from "models/Order";
 import { plainToClass } from "class-transformer";
-import { PageInfo } from "./../../models/PageInfo";
+import { PageInfo } from "models/PageInfo";
 
 const ORDERS_PAGE_SIZE = 6;
 
